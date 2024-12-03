@@ -1,0 +1,26 @@
+Insert books Query:
+
+db.books.insertMany([
+  { title: "The Hobbit", author: "J.R.R. Tolkien", genre: "Fantasy", year: 1937 },
+  { title: "To Kill a Mockingbird", author: "Harper Lee", genre: "Fiction", year: 1960 },
+  { title: "1984", author: "George Orwell", genre: "Dystopian", year: 1949 }
+])
+
+Retrieve titles of all books:
+
+db.books.find({}, { title: 1, _id: 0 })
+
+Find all Tolkien books:
+
+db.books.find({ author: "J.R.R. Tolkien" })
+
+Update Genre of 1984:
+
+db.books.updateOne(
+  { title: "1984" },
+  { $set: { genre: "Science Fiction" } }
+)
+
+Delete the Hobbit, poor guy. Rest in peace Bilbo.
+
+db.books.deleteOne({ title: "The Hobbit" })
