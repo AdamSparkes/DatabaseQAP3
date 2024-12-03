@@ -4,7 +4,6 @@ const { Pool } = require('pg');
 const app = express();
 const PORT = 3000;
 
-// Database connection configuration
 const pool = new Pool({
     host: 'localhost',
     port: 5432,
@@ -15,7 +14,6 @@ const pool = new Pool({
 
 app.use(express.json());
 
-// Create the tasks table if it doesn't exist
 const createTable = async () => {
     try {
         await pool.query(`
